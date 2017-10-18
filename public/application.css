@@ -1,11 +1,14 @@
+.post {
+  height: 400px;
+}
+
 .post-picture {
   position: relative;
-  width: 100%
+  width: 100%;
   max-width: 100px;
   max-height: 150px;
 }
 
-
-.post-title {
+h1 {
   color: red;
 }

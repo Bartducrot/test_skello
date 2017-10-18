@@ -8,6 +8,10 @@ configure :development do
   BetterErrors.application_root = File.expand_path('..', __FILE__)
 end
 
+set :static, true
+set :root, File.dirname(__FILE__)
+set :public, 'public'
+
 get "/" do
   @database = DB
   erb :index
