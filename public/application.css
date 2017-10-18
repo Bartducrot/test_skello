@@ -1,14 +1,11 @@
-.post {
-  height: 400px;
-}
-
-.post-picture {
+.post-card {
+  min-height: 600px;
   position: relative;
-  width: 100%;
-  max-width: 100px;
-  max-height: 150px;
+  text-align: justify;
+  max-width: 600px;
+  padding: 20px;
 }
 
-h1 {
+.post-title {
   color: red;
 }
