@@ -3,7 +3,7 @@ Programmation Générale
 1. Ecrire une regexp qui détecterait les nombres hexadécimaux dans un text
 ‘0x0f4’, ‘0acdadecf822eeff32aca5830e438cb54aa722e3’, ‘8BADF00D’ devraient tous être détectés
 
->
+> /[xX]?\h+/
 
 2. Ci-dessous le pseudo-code d'une fonction récursive
 -  f(0) = 1;
@@ -21,7 +21,11 @@ Ruby on Rails
 
 2. Qu'est-ce que le N+1 et comment l'éviter en Rails?
 
->
+> Le N+1 est un problème de chargement trop long lié à des requetes SQL mal optimisées de model enfant à partir de model parents.
+Pour l'éviter, on peut:
+- faire une requette SQL avec un join
+- eager loading
+- faire une requète customisée (en SQL pure sans utiliser ActiveRecord)
 
 3. D'un point de vue pratique, quel intérêt à utiliser des constantes dans une app Rails? Quelles implémentations avez-vous vu/mis en place?
 
