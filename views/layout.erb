@@ -9,10 +9,17 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+    <!-- customize CSS -->
     <link rel="stylesheet" href="application.css">
   </head>
   <body>
-    <%= yield %>
+    <%= erb :'partials/_navbar', :layout => false %>
+    <div class="padded">
+      <%= yield %>
+    </div>
+    <%= erb :'partials/_footer', :layout => false %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="application.js"></script>

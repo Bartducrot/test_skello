@@ -1,11 +1,10 @@
-.post-card {
-  min-height: 600px;
-  position: relative;
-  text-align: justify;
-  max-width: 600px;
-  padding: 20px;
+@import url("components/index.css");
+
+body {
+  font-family: 'Raleway', sans-serif;
 }
 
-.post-title {
-  color: red;
+
+.padded {
+  padding-top: 80px;
 }
