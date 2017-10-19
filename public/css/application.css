@@ -1,0 +1,10 @@
+@import url("components/index.css");
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.padded {
+  padding-top: 80px;
+}
