@@ -29,6 +29,11 @@ end
 
 get "/posts" do
   @database = Post.all
-  erb :'index'
+  erb :'post/index'
+end
 
+
+get "/posts/:id" do
+  @post = Post.find(params[:id])
+  erb :'post/show'
 end

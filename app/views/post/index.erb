@@ -6,7 +6,9 @@
 <div class="container">
   <div class="row">
     <% @database.each do |post| %>
-      <%= erb :'partials/_card', :layout => false, :locals => { :post => post } %>
+      <a href="/posts/<%= post.id %>">
+        <%= erb :'partials/_card', :layout => false, :locals => { :post => post } %>
+      </a>
     <% end %>
   </div>
 </div>

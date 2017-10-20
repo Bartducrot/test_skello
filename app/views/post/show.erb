@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+
+      <a href="/posts">
+        <%= erb :'partials/_card', :layout => false, :locals => { :post => @post } %>
+      </a>
+
+      <a href="/posts">
+        <% link_name = "Return home" %>
+        <%= erb :'partials/_button', :layout => false , :locals => { :link_name => link_name }%>
+      </a>
+
+
+  </div>
+</div>

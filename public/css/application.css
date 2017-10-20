@@ -8,3 +8,8 @@ body {
 .padded {
   padding-top: 80px;
 }
+
+
+.main {
+  min-height: 900px;
+}
