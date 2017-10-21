@@ -7,7 +7,14 @@
   <div class="row">
     <% @database.each do |post| %>
       <a href="/posts/<%= post.id %>">
-        <%= erb :'partials/_card', :layout => false, :locals => { :post => post } %>
+        <% sum = 0.0 %>
+        <% count = 0 %>
+        <% post.comments.each do |comment| %>
+          <% count += 1 %>
+          <% sum += comment.rating if comment.rating %>
+        <% end %>
+        <% count >= 1 ?  rating = sum / count : rating = 0.0 %>
+        <%= erb :'partials/_card', :layout => false, :locals => { :post => post , :rating => rating.round(1) } %>
       </a>
     <% end %>
   </div>
