@@ -37,3 +37,12 @@ get "/posts/:id" do
   @post = Post.find(params[:id])
   erb :'post/show'
 end
+
+post "/new_comment" do
+  @comment = Comment.new
+  @comment.content = params["comment"]["content"]
+  post_id = params["comment"]["post_id"]
+  @comment.post = Post.find(post_id)
+  @comment.save
+  redirect "/posts/#{post_id}"
+end

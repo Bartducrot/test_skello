@@ -4,17 +4,22 @@
 </div>
 <div class="container">
   <div class="row">
-      <div class="text-container">
-        <p><%= @post.content %></p>
-      </div>
-
-
-
-      <a href="/posts">
-        <% link_name = "Return home" %>
-        <%= erb :'partials/_button', :layout => false , :locals => { :link_name => link_name }%>
-      </a>
-
-
+    <div class="text-container">
+      <p><%= @post.content %></p>
+    </div>
+  </div>
+  <div class="row">
+    <% @post.comments.each do |comment| %>
+      <%= erb :'partials/_comment', :layout => false, :locals => { :comment => comment }%>
+    <% end %>
+  </div>
+  <div class="row">
+    <%= erb :'partials/_modal', :layout => false %>
+  </div>
+  <div class="row">
+    <a href="/posts">
+      <% link_name = "Return home" %>
+      <%= erb :'partials/_button', :layout => false , :locals => { :link_name => link_name }%>
+    </a>
   </div>
 </div>
