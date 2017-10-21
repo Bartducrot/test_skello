@@ -1,12 +1,16 @@
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+<div class="col-xs-12 col-lg-6">
   <div class="post-card">
     <div class="photo">
       <% picture = post[:photo] ? post[:photo] : "http://lorempixel.com/400/400" %>
-      <img class="img-responsive" src="<%= picture %>" alt="<%= post[:title] %> ">
+      <img class="img-rounded" src="<%= picture %>" alt="<%= post[:title] %> ">
     </div>
     <div class="header_and_content">
-      <h1 class="post-title"><%= post[:title] %></h1>
-      <p class="post-content"><%= post[:content] %></p>
+      <h1 class="post-title"><%= post[:title].downcase.capitalize %></h1>
+      <% content = post[:content][0..150] + "...... </br>(read more)" %>
+      <p class="post-content"><%= content.capitalize %></p>
+    </div>
+    <div class="rating">
+      <p><i class="fa fa-star"></i><%= post[:rating] %></p>
     </div>
   </div>
 </div>
