@@ -2,5 +2,6 @@
   <div class="comment">
     <p><%= comment.content.capitalize %></p>
     <p class="date"><%= comment.created_at.strftime("%A, %b %d") %></p>
+    <p class="comment-rating"> <i class="fa fa-star"></i> <%= comment.rating %></p>
   </div>
 </div>

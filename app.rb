@@ -41,6 +41,7 @@ end
 post "/new_comment" do
   @comment = Comment.new
   @comment.content = params["comment"]["content"]
+  @comment.rating = params["comment"]["rating"]
   post_id = params["comment"]["post_id"]
   @comment.post = Post.find(post_id)
   @comment.save

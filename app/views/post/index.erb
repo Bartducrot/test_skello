@@ -14,7 +14,7 @@
           <% sum += comment.rating if comment.rating %>
         <% end %>
         <% count >= 1 ?  rating = sum / count : rating = 0.0 %>
-        <%= erb :'partials/_card', :layout => false, :locals => { :post => post , :rating => rating } %>
+        <%= erb :'partials/_card', :layout => false, :locals => { :post => post , :rating => rating.round(1) } %>
       </a>
     <% end %>
   </div>
