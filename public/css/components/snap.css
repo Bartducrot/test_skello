@@ -2,6 +2,30 @@
   position: fixed;
   top: 80px;
   right: 10px;
-  background: rgba(249,220,92,0.8);
-  width: 20%;
+  background: rgba(249,220,92,0.2);
+  width: 200px;
+  border-radius: 5px;
+}
+
+.snap {
+  position: relative;
+  font-weight: bolder;
+  background: #FFFC00;
+  padding: 7px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.snap .countdown {
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  font-weight: lighter;
+  color: grey;
+}
+
+.snap-title {
+  margin: 15px;
+  color: white;
+  text-shadow: 1px 1px 5px black;
 }

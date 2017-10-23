@@ -1,17 +1,21 @@
-<div class="snap">
+<div id="snap<%= snap.id %>" class="snap">
   <p><%= snap.content %></p>
-  <p id="countdown<%= snap.id %>"><span class="second"></span>second(s)</p>
+  <p id="countdown<%= snap.id %>" class="countdown small">Will be deleted in <span class="second"><%= (snap.created_at.to_time + snap.duration - Time.now).round %></span> second(s)</p>
 </div>
 
 <script>
   // extract the duration from the database
-  var countdown = parseInt(<%= (snap.created_at.to_time + snap.duration - Time.now).round %>);
-  // decrement the countdown
+  var countdown<%= snap.id %> = parseInt(<%= (snap.created_at.to_time + snap.duration - Time.now).round %>);
+  // decrement the countdownp<%= snap.id %>
   $(document).ready( function() {
     setInterval(function(){
-      $("#countdown<%= snap.id %> span.second").html(countdown);
-      countdown = countdown - 1 ;
-      countdown <= 0 ? location.reload() : console.log(countdown);
+      if (countdown<%= snap.id %> <= 0){
+        $("#snap<%= snap.id %>").fadeIn(400).remove();
+      }
+      else {
+        countdown<%= snap.id %> = countdown<%= snap.id %> - 1 ;
+        $("#countdown<%= snap.id %> span.second").html(countdown<%= snap.id %>);
+      }
     }, 1000);
   });
 

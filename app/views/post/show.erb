@@ -34,9 +34,13 @@
     </a>
   </div>
 </div>
+<% if @post.snaps.length > 0 %>
+  <div id="snap_container">
+    <h3 class="snap-title">Snap message<%= @post.snaps.length > 1 ? "s" : "" %> for "<%= @post.title.downcase %>"</h3>
+    <% @post.snaps.each do |snap| %>
+      <%= erb :"partials/_snap", :layout => false, :locals => {:snap => snap }%>
+    <% end %>
+  </div>
+<% end %>
 
-<div id="snap_container">
-  <% @post.snaps.each do |snap| %>
-    <%= erb :"partials/_snap", :layout => false, :locals => {:snap => snap }%>
-  <% end %>
-</div>
+

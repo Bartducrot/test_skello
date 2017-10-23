@@ -73,6 +73,5 @@ post "/delete_snap/:id" do
   @snap = Snap.find(params)
   @post = @snap.post
   @snap.destroy
-  redirect "/posts/#{@post.id}"
 end
 
