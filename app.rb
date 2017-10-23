@@ -32,6 +32,14 @@ get "/posts" do
   erb :'post/index'
 end
 
+post "/posts/new" do
+  @post = Post.new
+  @post.title = params["post"]["title"]
+  @post.content = params["post"]["content"]
+  @post.photo = params["post"]["photo"]
+  @post.save
+  redirect "/posts/#{@post.id}"
+end
 
 get "/posts/:id" do
   @post = Post.find(params[:id])
@@ -47,3 +55,4 @@ post "/new_comment" do
   @comment.save
   redirect "/posts/#{post_id}"
 end
+

@@ -13,6 +13,8 @@
 .post-card .post-title {
   color: #4BB8D3;
   font-weight: bolder;
+  margin-top: 5px;
+  font-size: 18px;
 }
 
 .post-card .post-content {
@@ -32,8 +34,9 @@
 
 .post-card .rating {
   position: absolute;
-  right: 10px;
-  top: 90px;
+  left: 20px;
+  top: 20px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .post-card .rating .fa-star {
