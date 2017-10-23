@@ -4,6 +4,7 @@ require "sinatra"
 require "sinatra/reloader" if development?
 require "pry-byebug"
 require "better_errors"
+require "jquery-cdn"
 
 require_relative "database"
 require_relative "config/application"
@@ -43,6 +44,8 @@ end
 
 get "/posts/:id" do
   @post = Post.find(params[:id])
+  snaps = @post.snaps
+  snaps.each { |snap| snap.delete_if_expired}
   erb :'post/show'
 end
 
@@ -54,5 +57,22 @@ post "/new_comment" do
   @comment.post = Post.find(post_id)
   @comment.save
   redirect "/posts/#{post_id}"
+end
+
+post "/new_snap" do
+  @snap = Snap.new
+  @snap.content = params["snap"]["content"]
+  @snap.duration = params["snap"]["duration"].to_i
+  post_id = params["snap"]["post_id"]
+  @snap.post = Post.find(post_id)
+  @snap.save
+  redirect "/posts/#{post_id}"
+end
+
+post "/delete_snap/:id" do
+  @snap = Snap.find(params)
+  @post = @snap.post
+  @snap.destroy
+  redirect "/posts/#{@post.id}"
 end
 
