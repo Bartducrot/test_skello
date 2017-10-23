@@ -1,0 +1,36 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#snap">
+  Add a snap
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="snap" tabindex="-1" role="dialog" aria-labelledby="snap_Modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="snap_Modal">New snap</h4>
+      </div>
+
+      <form action="/new_snap" method="POST">
+        <div class="modal-body">
+          <input type="text" class="form-control" name="snap[content]" placeholder="Enter your message here">
+          <label for="snap[expiration]" class="control-label">How long do you want it to last? </label>
+          <select type="number" class="form-control" name="snap[duration]">
+            <option value="60">1 minute</option>
+            <option value="120">2 minutes</option>
+            <option value="180">3 minutes</option>
+            <option value="240">4 minutes</option>
+            <option value="300">5 minutes</option>
+          </select>
+          <input type="hidden" name="snap[post_id]" value="<%= params[:id] %>">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-warning" value="Add snap"></input>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+#snap_container {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  background: rgba(249,220,92,0.8);
+  width: 20%;
+}

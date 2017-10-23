@@ -1,0 +1,19 @@
+<div class="snap">
+  <p><%= snap.content %></p>
+  <p id="countdown<%= snap.id %>"><span class="second"></span>second(s)</p>
+</div>
+
+<script>
+  // extract the duration from the database
+  var countdown = parseInt(<%= (snap.created_at.to_time + snap.duration - Time.now).round %>);
+  // decrement the countdown
+  $(document).ready( function() {
+    setInterval(function(){
+      $("#countdown<%= snap.id %> span.second").html(countdown);
+      countdown = countdown - 1 ;
+      countdown <= 0 ? location.reload() : console.log(countdown);
+    }, 1000);
+  });
+
+
+</script>
